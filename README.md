@@ -3,5 +3,5 @@
 2. Analisa pada bagain a, yaitu perbaikan pada file html dan css. Di mana pada bagian a ini merupakan tampilan dari website RSUD H.M.Rabain yang mencakup poliklink, dokter, dan opsi layanan bantuan.
    Berikut analisanya:
    - Perbaikan pada opsi list tidak usah lagi memakai titik didepannya karena sudah pakai fitur list order
-   - Merapikan kode program agar mudah dibaca
+   - Merapikan kode program agar mudah dibaca 
    - Perbaikan pada typo kode
