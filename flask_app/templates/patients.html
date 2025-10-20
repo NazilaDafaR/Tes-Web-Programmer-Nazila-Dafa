@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Data Pasien</title>
+</head>
+<body>
+    <h1>Daftar Pasien</h1>
+    <a href="{{ url_for('create') }}">Tambah Pasien</a>
+    <table border="1" cellpadding="8">
+        <tr>
+            <th>ID</th><th>Nama</th><th>Tgl Lahir</th><th>Alamat</th><th>Diagnosa</th><th>Aksi</th>
+        </tr>
+        {% for p in patients %}
+        <tr>
+            <td>{{ p.id }}</td>
+            <td>{{ p.nama }}</td>
+            <td>{{ p.tgl_lahir }}</td>
+            <td>{{ p.alamat }}</td>
+            <td>{{ p.diagnosa }}</td>
+            <td>
+                <a href="{{ url_for('edit', id=p.id) }}">Edit</a> |
+                <a href="{{ url_for('delete', id=p.id) }}" onclick="return confirm('Yakin hapus data ini?')">Hapus</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

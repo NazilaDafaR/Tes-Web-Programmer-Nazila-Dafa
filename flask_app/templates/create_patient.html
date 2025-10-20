@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head><title>Tambah Pasien</title></head>
+<body>
+    <h1>Tambah Data Pasien</h1>
+    <form method="POST">
+        Nama: <input type="text" name="nama"><br>
+        Tanggal Lahir: <input type="date" name="tgl_lahir"><br>
+        Alamat: <input type="text" name="alamat"><br>
+        Diagnosa: <input type="text" name="diagnosa"><br>
+        <button type="submit">Simpan</button>
+    </form>
+    <!-- tampil ke halaman awal -->
+    <a href="{{ url_for('index') }}">Kembali</a>
+</body>
+</html>

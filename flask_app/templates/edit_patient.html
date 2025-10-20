@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head><title>Edit Pasien</title></head>
+<body>
+    <h1>Edit Data Pasien</h1>
+    <form method="POST">
+        Nama: <input type="text" name="nama" value="{{ patient.nama }}"><br>
+        Tanggal Lahir: <input type="date" name="tgl_lahir" value="{{ patient.tgl_lahir }}"><br>
+        Alamat: <input type="text" name="alamat" value="{{ patient.alamat }}"><br>
+        Diagnosa: <input type="text" name="diagnosa" value="{{ patient.diagnosa }}"><br>
+        <button type="submit">Update</button>
+    </form>
+    <!-- tampil ke halaman awal -->
+    <a href="{{ url_for('index') }}">Kembali</a>
+</body>
+</html>
