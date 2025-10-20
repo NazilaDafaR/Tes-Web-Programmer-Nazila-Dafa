@@ -1,1 +1,815 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>
+      Rumah Sakit Umum Daerah Dr. H. M. Rabain — Rumah Sakit Modern & Terpercaya
+    </title>
+    <meta
+      name="description"
+      content="Rumah sakit modern dengan layanan 24 jam, IGD, poliklinik, laboratorium, farmasi, bedah, dan rawat inap. Daftar janji temu online."/>
+    <meta name="theme-color" content="#0ea5e9" />
 
+    <!-- Open Graph -->
+    <meta
+      property="og:title"
+      content="Rumah Sakit Umum Daerah Dr. H. M. Rabain — Rumah Sakit Modern & Terpercaya"
+    />
+    <meta
+      property="og:description"
+      content="Daftar janji temu online. Layanan 24 jam: IGD, Poliklinik, Lab, Radiologi, Farmasi, Rawat Inap."
+    />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:image"
+      content="https://images.unsplash.com/photo-1586773860418-d37222d8fce3?q=80&w=1600&auto=format&fit=crop"
+    />
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              brand: {
+                50: "#eff9ff",
+                100: "#d9f2ff",
+                200: "#b6e6ff",
+                300: "#83d5ff",
+                400: "#47beff",
+                500: "#0ea5e9", // sky-500
+                600: "#0284c7",
+                700: "#0369a1",
+                800: "#075985",
+                900: "#0c4a6e",
+              },
+            },
+            boxShadow: {
+              soft: "0 8px 30px rgba(2,132,199,0.12)",
+            },
+          },
+        },
+      };
+    </script>
+
+    <!-- Icons (Lucide) -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+      /* Smooth reveal */
+      [data-reveal] {
+        opacity: 0;
+        transform: translateY(12px);
+        transition: opacity 0.6s ease, transform 0.6s ease;
+      }
+      [data-reveal].is-visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    </style>
+  </head>
+
+  <body class="antialiased text-slate-700">
+    <!-- Top Bar -->
+    <div class="text-sm text-white bg-brand-900">
+      <div
+        class="flex items-center justify-between px-4 py-2 mx-auto max-w-7xl"
+      >
+        <p class="flex items-center gap-2">
+          <span class="i-lucide-phone"></span
+          ><span>Call Center: (0734) 424345 • IGD 24 Jam</span>
+        </p>
+        <nav class="hidden gap-6 md:flex text-white/80">
+          <a href="#jadwal" class="hover:text-white">Jadwal Dokter</a>
+          <a href="#daftar" class="hover:text-white">Daftar Online</a>
+          <a href="#kontak" class="hover:text-white">Kontak</a>
+        </nav>
+      </div>
+    </div>
+
+    <!-- Navbar -->
+    <header
+      class="sticky top-0 z-40 border-b bg-white/80 backdrop-blur border-slate-200/60">
+      <div class="px-4 mx-auto max-w-7xl">
+        <div class="flex items-center justify-between py-3">
+          <a href="#" class="flex items-center gap-3">
+            <div
+              class="grid h-9 w-9 rounded-xl bg-brand-500/10 place-items-center text-brand-600"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                class="w-5 h-5"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M12 2v20" />
+                <path d="M2 12h20" />
+              </svg>
+            </div>
+            <div>
+              <p class="font-semibold leading-4">
+                Rumah Sakit Umum Daerah Dr. H. M. Rabain
+              </p>
+              <p class="-mt-1 text-xs text-slate-500">Care with Heart</p>
+            </div>
+          </a>
+
+          <nav class="items-center hidden gap-6 text-sm md:flex">
+            <a class="hover:text-brand-700" href="#layanan">Layanan</a>
+            <a class="hover:text-brand-700" href="#dokter">Dokter</a>
+            <a class="hover:text-brand-700" href="#fasilitas">Fasilitas</a>
+            <a class="hover:text-brand-700" href="#biaya">Biaya</a>
+            <a class="hover:text-brand-700" href="#faq">FAQ</a>
+          </nav>
+
+          <div class="flex items-center gap-3">
+            <a
+              href="#daftar"
+              class="hidden px-4 py-2 text-sm font-medium border sm:inline-flex rounded-2xl border-brand-600/20 text-brand-700 hover:bg-brand-50">Daftar Online</a>
+            <button id="menuBtn" class="px-3 py-2 border md:hidden rounded-xl">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="w-5 h-5"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <line x1="3" y1="12" x2="21" y2="12" />
+                <line x1="3" y1="6" x2="21" y2="6" />
+                <line x1="3" y1="18" x2="21" y2="18" />
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Mobile menu -->
+        <div id="mobileMenu" class="hidden pb-4 md:hidden">
+          <div class="grid gap-2 text-sm">
+            <a class="py-2 border-b" href="#layanan">Layanan</a>
+            <a class="py-2 border-b" href="#dokter">Dokter</a>
+            <a class="py-2 border-b" href="#fasilitas">Fasilitas</a>
+            <a class="py-2 border-b" href="#biaya">Biaya</a>
+            <a class="py-2" href="#faq">FAQ</a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Hero -->
+    <section
+      class="relative overflow-hidden bg-gradient-to-b from-brand-50 to-white"
+    >
+      <div
+        class="grid items-center gap-10 px-4 py-16 mx-auto max-w-7xl sm:py-24 lg:grid-cols-2"
+      >
+        <div data-reveal>
+          <div
+            class="inline-flex items-center gap-2 px-3 py-1 text-xs bg-white border rounded-full shadow-soft text-brand-700 border-brand-100"
+          >
+            <span class="i-lucide-shield-check"></span
+            ><span>Terakreditasi Paripurna</span>
+          </div>
+          <h1
+            class="mt-4 text-4xl font-extrabold tracking-tight sm:text-5xl text-slate-900"
+          >
+            Kesehatan Anda, Prioritas Kami.
+          </h1>
+          <p class="mt-4 text-lg text-slate-600">
+            Layanan 24 jam dengan tenaga medis profesional, teknologi terkini,
+            dan proses pendaftaran online yang cepat.
+          </p>
+          <div class="flex flex-col gap-3 mt-6 sm:flex-row">
+            <a
+              href="#daftar"
+              class="px-6 py-3 font-medium text-white rounded-2xl bg-brand-600 shadow-soft hover:bg-brand-700">Buat Janji Sekarang</a>
+            <a
+              href="#layanan"
+              class="px-6 py-3 font-medium border rounded-2xl border-slate-300 hover:bg-slate-50">Lihat Layanan</a>
+          </div>
+          <div class="grid grid-cols-3 gap-6 mt-8">
+            <div class="p-4 bg-white border rounded-2xl">
+              <p class="text-2xl font-bold text-brand-700">24/7</p>
+              <p class="text-sm text-slate-500">IGD Aktif</p>
+            </div>
+            <div class="p-4 bg-white border rounded-2xl">
+              <p class="text-2xl font-bold text-brand-700">120+</p>
+              <p class="text-sm text-slate-500">Tenaga Medis</p>
+            </div>
+            <div class="p-4 bg-white border rounded-2xl">
+              <p class="text-2xl font-bold text-brand-700">30+</p>
+              <p class="text-sm text-slate-500">Poliklinik</p>
+            </div>
+          </div>
+        </div>
+        <div class="relative" data-reveal>
+          <img
+            class="rounded-3xl border w-full object-cover aspect-[4/3]"
+            src="https://images.unsplash.com/photo-1583912267550-5f0b29c0e78f?q=80&w=1600&auto=format&fit=crop"
+            alt="Tim medis di rumah sakit"
+          />
+          <div
+            class="absolute p-4 bg-white border -bottom-6 -left-6 rounded-2xl shadow-soft w-60"
+          >
+            <p class="text-sm font-semibold">Waktu Tunggul Lebih Singkat</p>
+            <p class="text-xs text-slate-500">
+              Rata-rata 15–25 menit untuk rawat jalan.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Layanan -->
+    <section id="layanan" class="py-16">
+      <div class="px-4 mx-auto max-w-7xl">
+        <div class="mb-10" data-reveal>
+          <h2 class="text-3xl font-bold text-slate-900">Layanan Unggulan</h2>
+          <p class="mt-2 text-slate-600">
+            Dari pencegahan hingga tindakan, kami hadir di setiap tahap
+            pemulihan Anda.
+          </p>
+        </div>
+        <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <!-- Card -->
+          <article
+            class="p-6 transition bg-white border rounded-2xl hover:shadow-soft"
+            data-reveal
+          >
+            <div
+              class="grid w-10 h-10 mb-4 rounded-lg bg-brand-50 text-brand-700 place-items-center"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="w-5 h-5"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path d="M10 2v4" />
+                <path d="M14 2v4" />
+                <rect x="4" y="4" width="16" height="18" rx="2" />
+                <path d="M4 10h16" />
+              </svg>
+            </div>
+            <h3 class="font-semibold">IGD 24 Jam</h3>
+            <p class="mt-2 text-sm text-slate-600">
+              Penanganan gawat darurat cepat dengan tim responsif.
+            </p>
+          </article>
+          <article
+            class="p-6 transition bg-white border rounded-2xl hover:shadow-soft"
+            data-reveal
+          >
+            <div
+              class="grid w-10 h-10 mb-4 rounded-lg bg-brand-50 text-brand-700 place-items-center"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="w-5 h-5"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <circle cx="12" cy="12" r="10" />
+                <path d="M12 8v8" />
+                <path d="M8 12h8" />
+              </svg>
+            </div>
+            <h3 class="font-semibold">Poliklinik</h3>
+            <p class="mt-2 text-sm text-slate-600">
+              Spesialis anak, penyakit dalam, bedah, kebidanan, dan lainnya.
+            </p>
+          </article>
+          <article
+            class="p-6 transition bg-white border rounded-2xl hover:shadow-soft"
+            data-reveal
+          >
+            <div
+              class="grid w-10 h-10 mb-4 rounded-lg bg-brand-50 text-brand-700 place-items-center"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="w-5 h-5"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path d="M21 16V8" />
+                <path d="M3 8v8" />
+                <path d="M3 12h18" />
+              </svg>
+            </div>
+            <h3 class="font-semibold">Laboratorium & Radiologi</h3>
+            <p class="mt-2 text-sm text-slate-600">
+              Hasil cepat dan akurat untuk keputusan klinis tepat.
+            </p>
+          </article>
+          <article
+            class="p-6 transition bg-white border rounded-2xl hover:shadow-soft"
+            data-reveal
+          >
+            <div
+              class="grid w-10 h-10 mb-4 rounded-lg bg-brand-50 text-brand-700 place-items-center"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="w-5 h-5"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path d="M3 7h18" />
+                <path d="M6 7v13a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V7" />
+                <path d="M10 11h4" />
+              </svg>
+            </div>
+            <h3 class="font-semibold">Rawat Inap</h3>
+            <p class="mt-2 text-sm text-slate-600">
+              Kenyamanan pasien dengan kamar bersih dan ramah keluarga.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Dokter -->
+    <section id="dokter" class="py-16 bg-slate-50">
+      <div class="px-4 mx-auto max-w-7xl">
+        <div class="mb-10" data-reveal>
+          <h2 class="text-3xl font-bold text-slate-900">Dokter Kami</h2>
+          <p class="mt-2 text-slate-600">
+            Tim profesional yang berkomitmen pada keselamatan dan empati.
+          </p>
+        </div>
+        <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <!-- Doctor Card -->
+          <article class="p-4 bg-white border rounded-2xl" data-reveal>
+            <img
+              class="rounded-xl aspect-[4/3] w-full object-cover"
+              src="https://images.unsplash.com/photo-1550831107-1553da8c8464?q=80&w=1200&auto=format&fit=crop"
+              alt="Dokter Spesialis Penyakit Dalam"
+            />
+            <div class="mt-3">
+              <h3 class="font-semibold">dr. Andi Pratama, Sp.PD</h3>
+              <p class="text-sm text-slate-500">Spesialis Penyakit Dalam</p>
+            </div>
+          </article>
+          <article class="p-4 bg-white border rounded-2xl" data-reveal>
+            <img
+              class="rounded-xl aspect-[4/3] w-full object-cover"
+              src="https://images.unsplash.com/photo-1551076805-e1869033e561?q=80&w=1200&auto=format&fit=crop"
+              alt="Dokter Bedah"
+            />
+            <div class="mt-3">
+              <h3 class="font-semibold">dr. Ratna Lestari, Sp.B</h3>
+              <p class="text-sm text-slate-500">Spesialis Bedah Umum</p>
+            </div>
+          </article>
+          <article class="p-4 bg-white border rounded-2xl" data-reveal>
+            <img
+              class="rounded-xl aspect-[4/3] w-full object-cover"
+              src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?q=80&w=1200&auto=format&fit=crop"
+              alt="Dokter Anak"
+            />
+            <div class="mt-3">
+              <h3 class="font-semibold">dr. Siti Handayani, Sp.A</h3>
+              <p class="text-sm text-slate-500">Spesialis Anak</p>
+            </div>
+          </article>
+          <article class="p-4 bg-white border rounded-2xl" data-reveal>
+            <img
+              class="rounded-xl aspect-[4/3] w-full object-cover"
+              src="https://images.unsplash.com/photo-1579684453423-f84349ef60b0?q=80&w=1200&auto=format&fit=crop"
+              alt="Dokter Obgyn"
+            />
+            <div class="mt-3">
+              <h3 class="font-semibold">dr. Dwi Rahayu, Sp.OG</h3>
+              <p class="text-sm text-slate-500">Obstetri & Ginekologi</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Jadwal & Janji Temu -->
+    <section id="daftar" class="py-16">
+      <div
+        class="grid items-start gap-10 px-4 mx-auto max-w-7xl lg:grid-cols-2"
+      >
+        <div data-reveal>
+          <h2 class="text-3xl font-bold text-slate-900">Buat Janji Temu</h2>
+          <p class="mt-2 text-slate-600">
+            Pilih poli, dokter, dan jadwal yang tersedia. Kami akan mengirimkan
+            konfirmasi ke email/WhatsApp Anda.
+          </p>
+
+          <form
+            class="grid gap-4 p-6 mt-6 bg-white border rounded-2xl"
+            onsubmit="event.preventDefault(); fakeSubmit(this)"
+          >
+            <div class="grid gap-4 sm:grid-cols-2">
+              <div>
+                <label class="text-sm font-medium" for="nama"
+                  >Nama Lengkap</label
+                >
+                <input
+                  id="nama"
+                  name="nama"
+                  required
+                  class="w-full px-3 py-2 mt-1 border rounded-xl"
+                  placeholder="Nama Anda"
+                />
+              </div>
+              <div>
+                <label class="text-sm font-medium" for="hp">No. HP/WA</label>
+                <input
+                  id="hp"
+                  name="hp"
+                  type="tel"
+                  required
+                  class="w-full px-3 py-2 mt-1 border rounded-xl"
+                  placeholder="08xx"
+                />
+              </div>
+            </div>
+            <div class="grid gap-4 sm:grid-cols-2">
+              <div>
+                <label class="text-sm font-medium" for="poli">Poliklinik</label>
+                <select
+                  id="poli"
+                  name="poli"
+                  required
+                  class="w-full px-3 py-2 mt-1 bg-white border rounded-xl"
+                >
+                  <option value="">Pilih Poli</option>
+                  <option>Penyakit Dalam</option>
+                  <option>Bedah Umum</option>
+                  <option>Anak</option>
+                  <option>Kebidanan & Kandungan</option>
+                  <option>Gigi</option>
+                </select>
+              </div>
+              <div>
+                <label class="text-sm font-medium" for="tanggal">Tanggal</label>
+                <input
+                  id="tanggal"
+                  name="tanggal"
+                  type="date"
+                  required
+                  class="w-full px-3 py-2 mt-1 border rounded-xl"
+                />
+              </div>
+            </div>
+            <div>
+              <label class="text-sm font-medium" for="keluhan">Keluhan</label>
+              <textarea
+                id="keluhan"
+                name="keluhan"
+                rows="3"
+                class="w-full px-3 py-2 mt-1 border rounded-xl"
+                placeholder="Ceritakan singkat keluhan Anda"
+              ></textarea>
+            </div>
+            <button
+              class="px-6 py-3 font-medium text-white rounded-2xl bg-brand-600 hover:bg-brand-700"
+            >
+              Kirim Permohonan
+            </button>
+            <p id="formMsg" class="hidden text-sm"></p>
+          </form>
+        </div>
+
+        <!-- Jadwal ringkas -->
+        <aside class="p-6 border rounded-2xl bg-slate-50" data-reveal>
+          <h3 class="font-semibold">Jadwal Populer Hari Ini</h3>
+          <ul class="grid gap-3 mt-4 text-sm">
+            <li
+              class="flex items-center justify-between p-3 bg-white border rounded-xl"
+            >
+              <span>Penyakit Dalam</span
+              ><span class="text-slate-500">09.00–12.00</span>
+            </li>
+            <li
+              class="flex items-center justify-between p-3 bg-white border rounded-xl"
+            >
+              <span>Kebidanan</span
+              ><span class="text-slate-500">13.00–16.00</span>
+            </li>
+            <li
+              class="flex items-center justify-between p-3 bg-white border rounded-xl"
+            >
+              <span>Bedah Umum</span
+              ><span class="text-slate-500">16.00–20.00</span>
+            </li>
+          </ul>
+          <div class="p-4 mt-6 bg-white border rounded-xl border-brand-200">
+            <p class="text-sm text-slate-600">
+              Butuh bantuan cepat? Hubungi
+              <span class="font-medium text-slate-900">(021) 1234-5678</span>
+              atau IGD 24 jam.
+            </p>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- Fasilitas -->
+    <section id="fasilitas" class="py-16 bg-white">
+      <div class="px-4 mx-auto max-w-7xl">
+        <div class="mb-8" data-reveal>
+          <h2 class="text-3xl font-bold">Fasilitas</h2>
+          <p class="mt-2 text-slate-600">
+            Lingkungan nyaman, steril, dan ramah keluarga.
+          </p>
+        </div>
+        <div class="grid gap-6 md:grid-cols-3">
+          <img
+            class="rounded-2xl border w-full aspect-[4/3] object-cover"
+            src="https://images.unsplash.com/photo-1579154208281-50c1728fd23f?q=80&w=1600&auto=format&fit=crop"
+            alt="Ruang rawat inap"
+            data-reveal
+          />
+          <img
+            class="rounded-2xl border w-full aspect-[4/3] object-cover"
+            src="https://images.unsplash.com/photo-1584988299603-6f0e4f40985b?q=80&w=1600&auto=format&fit=crop"
+            alt="Laboratorium modern"
+            data-reveal
+          />
+          <img
+            class="rounded-2xl border w-full aspect-[4/3] object-cover"
+            src="https://images.unsplash.com/photo-1580281657527-47f249e4a60c?q=80&w=1600&auto=format&fit=crop"
+            alt="Instalasi radiologi"
+            data-reveal
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- Biaya / Paket -->
+    <section id="biaya" class="py-16 bg-slate-50">
+      <div class="px-4 mx-auto max-w-7xl">
+        <div class="mb-10" data-reveal>
+          <h2 class="text-3xl font-bold">Paket Pemeriksaan</h2>
+          <p class="mt-2 text-slate-600">
+            Transparan dan terjangkau. Harga dapat berbeda per wilayah &
+            asuransi.
+          </p>
+        </div>
+        <div class="grid gap-6 md:grid-cols-3">
+          <div class="p-6 bg-white border rounded-2xl" data-reveal>
+            <h3 class="font-semibold">Paket Basic</h3>
+            <p class="mt-2 text-3xl font-extrabold">Rp299rb</p>
+            <ul class="mt-3 space-y-2 text-sm text-slate-600">
+              <!--perbaikan pada opsi list tidak usah lagi memakai titik didepannya karena sudah pakai fitur list order  -->
+              <li>Pemeriksaan dokter umum</li>
+              <li>Cek darah lengkap</li>
+              <li>Konsultasi gizi</li>
+            </ul>
+            <a
+              href="#daftar"
+              class="inline-block px-4 py-2 mt-4 text-sm border rounded-xl hover:bg-slate-50">Pilih Paket</a>
+
+          </div>
+          <div
+            class="p-6 bg-white border-2 rounded-2xl border-brand-600 shadow-soft"
+            data-reveal
+          >
+            <p class="text-xs tracking-wide uppercase text-brand-700">
+              Terpopuler
+            </p>
+            <h3 class="font-semibold">Paket Umum</h3>
+            <p class="mt-2 text-3xl font-extrabold">Rp499rb</p>
+            <ul class="mt-3 space-y-2 text-sm text-slate-600">
+              <li>• Dokter spesialis</li>
+              <li>• Lab & rontgen dasar</li>
+              <li>• Konsultasi lanjutan</li>
+            </ul>
+            <a
+              href="#daftar"
+              class="inline-block px-4 py-2 mt-4 text-sm text-white rounded-xl bg-brand-600 hover:bg-brand-700"
+              >Pilih Paket</a
+            >
+          </div>
+          <div class="p-6 bg-white border rounded-2xl" data-reveal>
+            <h3 class="font-semibold">Paket Premium</h3>
+            <p class="mt-2 text-3xl font-extrabold">Rp999rb</p>
+            <ul class="mt-3 space-y-2 text-sm text-slate-600">
+              <!--perbaikan pada opsi list tidak usah lagi memakai titik didepannya karena sudah pakai fitur list order  -->
+              <li>Spesialis + panel lab advance</li>
+              <li>USG/EKG sesuai indikasi</li>
+              <li>Konsultasi gizi & mental</li>
+            </ul>
+            <a
+              href="#daftar"
+              class="inline-block px-4 py-2 mt-4 text-sm border rounded-xl hover:bg-slate-50"
+              >Pilih Paket</a
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="py-16">
+      <div class="max-w-5xl px-4 mx-auto">
+        <div class="mb-10" data-reveal>
+          <h2 class="text-3xl font-bold">Pertanyaan Umum</h2>
+          <p class="mt-2 text-slate-600">
+            Jawaban cepat untuk hal yang sering ditanyakan.
+          </p>
+        </div>
+        <div class="bg-white border divide-y rounded-2xl" data-reveal>
+          <details class="p-6 group">
+            <summary
+              class="flex items-center justify-between font-medium list-none cursor-pointer"
+            >
+              Apakah menerima BPJS & asuransi swasta?
+              <span class="transition group-open:rotate-180">▾</span>
+            </summary>
+            <p class="mt-3 text-sm text-slate-600">
+              Ya, kami bekerja sama dengan BPJS Kesehatan dan berbagai asuransi
+              swasta. Silakan siapkan kartu dan identitas saat pendaftaran.
+            </p>
+          </details>
+          <details class="p-6 group">
+            <summary
+              class="flex items-center justify-between font-medium list-none cursor-pointer"
+            >
+              Bagaimana cara daftar online?
+              <span class="transition group-open:rotate-180">▾</span>
+            </summary>
+            <p class="mt-3 text-sm text-slate-600">
+              Gunakan formulir di bagian "Buat Janji Temu", pilih poli, tanggal,
+              dan masukkan data kontak. Tim kami akan menghubungi untuk
+              konfirmasi.
+            </p>
+          </details>
+          <details class="p-6 group">
+            <summary
+              class="flex items-center justify-between font-medium list-none cursor-pointer"
+            >
+              Apakah IGD buka 24 jam?
+              <span class="transition group-open:rotate-180">▾</span>
+            </summary>
+            <p class="mt-3 text-sm text-slate-600">
+              IGD kami aktif 24/7 dengan dokter jaga, perawat, dan fasilitas
+              penunjang lengkap.
+            </p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section
+      class="py-16 text-white bg-gradient-to-r from-brand-600 to-brand-700"
+    >
+      <div
+        class="grid items-center gap-6 px-4 mx-auto max-w-7xl md:grid-cols-2"
+      >
+        <div data-reveal>
+          <h2 class="text-3xl font-bold">Siap Dibantu?</h2>
+          <p class="mt-2 text-white/90">
+            Hubungi kami kapan saja atau buat janji temu online dalam hitungan
+            menit.
+          </p>
+        </div>
+        <div class="flex gap-3 md:justify-end" data-reveal>
+          <a
+            href="tel:02112345678"
+            class="px-5 py-3 font-medium border rounded-2xl border-white/30"
+            >Telepon</a
+          >
+          <a
+            href="#daftar"
+            class="px-5 py-3 font-medium bg-white rounded-2xl text-brand-700"
+            >Daftar Online</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="kontak" class="bg-slate-900 text-slate-200">
+      <div class="grid gap-8 px-4 py-12 mx-auto max-w-7xl md:grid-cols-4">
+        <div>
+          <p class="text-lg font-semibold">
+            Rumah Sakit Umum Daerah Dr. H. M. Rabain
+          </p>
+          <p class="mt-2 text-sm text-slate-400">
+            Jl Sultan Mahmud Badaruddin II No. 49 Air Lintang, Ps. II Muara
+            Enim, Kecamatan Muara Enim, Kabupaten Muara Enim, Sumatera Selatan
+            31315
+          </p>
+          <p class="text-sm text-slate-400">(0734) 424345</p>
+        </div>
+        <nav class="grid gap-2 text-sm">
+          <p class="font-semibold text-white">Menu</p>
+          <a class="text-slate-400 hover:text-white" href="#layanan">Layanan</a>
+          <a class="text-slate-400 hover:text-white" href="#dokter">Dokter</a>
+          <a class="text-slate-400 hover:text-white" href="#biaya">Biaya</a>
+          <a class="text-slate-400 hover:text-white" href="#faq">FAQ</a>
+        </nav>
+        <div class="text-sm">
+          <p class="font-semibold text-white">Jam Operasional</p>
+          <p class="mt-2 text-slate-400">Poliklinik: Sen–Sab 08.00–20.00</p>
+          <p class="text-slate-400">IGD: 24 Jam</p>
+        </div>
+        <div class="text-sm">
+          <p class="font-semibold text-white">Lokasi</p>
+          <div class="mt-2 overflow-hidden border rounded-xl border-white/10">
+            <iframe
+              title="Map"
+              src="https://maps.google.com/maps?q=Palembang&t=&z=12&ie=UTF8&iwloc=&output=embed"
+              width="100%"
+              height="160"
+              loading="lazy"
+            ></iframe>
+          </div>
+        </div>
+      </div>
+      <div class="border-t border-white/10">
+        <div
+          class="flex items-center justify-between px-4 py-6 mx-auto text-xs max-w-7xl text-slate-400"
+        >
+          <p>
+            © <span id="year"></span> RS Sehat Sentosa. Semua hak dilindungi.
+          </p>
+          <a href="#" class="hover:text-white">Kebijakan Privasi</a>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+      // Mobile menu toggle
+      const menuBtn = document.getElementById("menuBtn");
+      const mobileMenu = document.getElementById("mobileMenu");
+      menuBtn?.addEventListener("click", () =>
+        mobileMenu.classList.toggle("hidden")
+      );
+
+      // Reveal on scroll
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) entry.target.classList.add("is-visible");
+          });
+        },
+        { threshold: 0.1 }
+      );
+      document
+        .querySelectorAll("[data-reveal]")
+        .forEach((el) => observer.observe(el));
+
+      // Form fake submit
+      function fakeSubmit(form) {
+        const msg = document.getElementById("formMsg");
+        msg.classList.remove("hidden");
+        msg.textContent =
+          "Permohonan diterima! Kami akan menghubungi Anda via WhatsApp.";
+        msg.className =
+          "text-sm rounded-xl bg-green-50 border border-green-200 text-green-700 px-3 py-2";
+        form.reset();
+      }
+
+      // Year
+      document.getElementById("year").textContent = new Date().getFullYear();
+
+      // Init icons
+      window.lucide?.createIcons();
+    </script>
+
+    <!-- Schema.org (JSON-LD) -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Hospital",
+        "name": "Rumah Sakit Umum Daerah Dr. H. M. Rabain",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Jl Sultan Mahmud Badaruddin II No. 49 Air Lintang, Ps. II",
+          "addressLocality": "Muara Enim",
+          "addressCountry": "ID"
+        },
+        "telephone": "(0734) 424345",
+        "image": "https://images.unsplash.com/photo-1586773860418-d37222d8fce3?q=80&w=1600&auto=format&fit=crop",
+        "medicalSpecialty": ["Cardiovascular", "Pediatrics", "Obstetrics"],
+        "openingHours": "Mo-Sa 08:00-20:00",
+        "emergencyService": true,
+        "url": "https://contoh.rssehat.id"
+      }
+    </script>
+  </body>
+</html>
